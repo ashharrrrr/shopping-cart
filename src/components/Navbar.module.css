@@ -1,0 +1,35 @@
+body{
+    font-family: sans-serif;
+}
+.nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+.leftNav {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+}
+.leftLinks {
+    display: flex;
+    font-size: 1.3rem;
+    gap: 1rem;
+    margin-top: 1.1rem;
+}
+.logo {
+    font-size: 3rem;
+    font-weight: 900; 
+}
+.link{
+    text-decoration: none;
+}
+.link:visited{
+    color: black;
+}
+.link:hover{
+    text-decoration: underline;
+    cursor: pointer
+}
