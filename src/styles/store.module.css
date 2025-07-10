@@ -1,0 +1,7 @@
+.store{
+    margin: 5rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5rem;
+    justify-content: center;
+}
