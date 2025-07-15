@@ -3,15 +3,15 @@ import { createContext, useContext } from "react";
 import { type Product } from "../pages/Store";
 
 type ShopContext = {
-  products: Product[],
-  userCart: Product[],
-  addToCart: (id: number) => void, 
+  products: Product[];
+  userCart: Product[];
+  addToCart: (id: number) => void;
 };
 
 const ShopContext = createContext<ShopContext>({
   products: [],
   userCart: [],
-  addToCart: () => {}
+  addToCart: () => {},
 });
 
 export default function DataProvider({
@@ -21,14 +21,16 @@ export default function DataProvider({
 }) {
   const [products, setProducts] = useState<Product[]>([]);
   const [userCart, setUserCart] = useState<Product[]>([]);
-  const addToCart = (id: number) =>  {
+  const addToCart = (id: number) => {
+    const matched = userCart.find((product) => product.id === id);
+    if (matched) return;
     products.map((product) => {
-      if (product.id === id){
-        setUserCart(prev => [...prev, product]);
+      if (product.id === id) {
+        setUserCart((prev) => [...prev, product]);
       }
-    })
+    });
     console.log(userCart);
-  } 
+  };
 
   useEffect(() => {
     async function getShopData() {

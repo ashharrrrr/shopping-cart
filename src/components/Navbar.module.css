@@ -34,3 +34,7 @@ body{
     text-decoration: underline;
     cursor: pointer
 }
+.shoppingCart{
+    display: flex;
+    gap: 5px
+}

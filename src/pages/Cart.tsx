@@ -1,22 +1,13 @@
-import Card from "../components/Card";
-import { useData } from "../contexts/DataProvider";
-import { type Product } from "./Store";
-
+import Table from "../components/Table.tsx";
+import Total from "../components/Total.tsx";
+import style from "../styles/Cart.module.css";
 export default function Cart() {
-  const { userCart } = useData();
   return (
-    <div>
-      {userCart.map((product: Product) => {
-        return (
-          <Card
-            key={product.id}
-            id={product.id}
-            title={product.title}
-            image={product.image}
-            price={product.price}
-          />
-        );
-      })}
+    <div className={style.cart}>
+      <Table />
+      <div className={style.total}>
+        <Total />
+      </div>
     </div>
   );
 }

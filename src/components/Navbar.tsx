@@ -1,7 +1,9 @@
 import { ShoppingBag } from "lucide-react";
 import styles from "./Navbar.module.css";
 import { Link } from "react-router-dom";
+import { useData } from "../contexts/DataProvider";
 export default function Navbar() {
+  const { userCart } = useData();
   return (
     <div className={styles.nav}>
       <div className={styles.leftNav}>
@@ -16,8 +18,9 @@ export default function Navbar() {
         </div>
       </div>
       <div>
-        <Link className={styles.link} to="cart">
+        <Link className={`${styles.link} ${styles.shoppingCart}`} to="cart">
           <ShoppingBag />
+          <p>{userCart.length}</p>
         </Link>
       </div>
     </div>

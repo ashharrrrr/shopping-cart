@@ -1,0 +1,8 @@
+.cart{
+    display: flex;
+    flex-direction: column;
+}
+.total{
+    margin-top: 40px;
+}
+
