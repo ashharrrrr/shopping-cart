@@ -1,10 +1,14 @@
 import styles from "./Card.module.css";
+import { useData } from "../contexts/DataProvider";
 type CardProps = {
     title: string,
     price: number,
-    image: string
+    image: string,
+    id: number,
+
 }
-export default function Card({ title, price, image }: CardProps) {
+export default function Card({ id, title, price, image }: CardProps) {
+  const { addToCart } = useData();
   return (
     <div className={styles.card}>
       <div className={styles.imgholder}>
@@ -22,7 +26,7 @@ export default function Card({ title, price, image }: CardProps) {
           <p className={styles.productprice}>{`$${price}`}</p>
         </div>
         <div className={styles.btnholder}>
-          <button className={styles.btn}>Add To Cart</button>
+          <button onClick={() =>addToCart(id)} className={styles.btn}>Add To Cart</button>
         </div>
       </div>
     </div>
